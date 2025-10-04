@@ -31,6 +31,10 @@ test-cartpole:
 	@echo "Running bicycle test..."
 	$(PYTHON) tests/test_ilqr_cartpole.py
 
+test-rocket: 
+	@echo "Running rocket test..."
+	$(PYTHON) tests/test_ilqr_rocket.py
+
 clean:
 	rm -rf build/ dist/ *.egg-info
 	rm -rf src/*.egg-info
