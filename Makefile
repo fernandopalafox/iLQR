@@ -27,6 +27,10 @@ test-unit:
 	@echo "Running unit (quadratic) test..."
 	$(PYTHON) tests/test_ilqr_unit.py
 
+test-cartpole:
+	@echo "Running bicycle test..."
+	$(PYTHON) tests/test_ilqr_cartpole.py
+
 clean:
 	rm -rf build/ dist/ *.egg-info
 	rm -rf src/*.egg-info
