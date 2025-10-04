@@ -17,11 +17,13 @@ import time
 import jax
 import jax.numpy as jnp
 import matplotlib.pyplot as plt
+from matplotlib.patches import FancyArrow
 
 # ========================================================================== #
 # Import solver
 # ========================================================================== #
 from ilqr import iLQR
+from utils.animation import animate_trajectory
 
 
 # ========================================================================== #
@@ -163,7 +165,44 @@ axs[2].grid(alpha=0.3)
 axs[2].legend()
 
 plt.tight_layout()
-plt.savefig("figures/ex_5_ilqr.png", dpi=300)
+plt.savefig("figures/test_ilqr.png", dpi=300)
 plt.close()
 
-print("Plot saved to: figures/ex_5_ilqr.png\n")
+print("Plot saved to: figurestest_ilqr.png")
+
+
+# ========================================================================== #
+# 6. Animation
+# ========================================================================== #
+def draw_bicycle(ax, state, trajectory=None, goal=(0, 0)):
+    """Draw bicycle at given state with trajectory trail and goal."""
+    x, y, theta = state
+
+    # Draw trajectory trail
+    if trajectory is not None:
+        ax.plot(trajectory[:, 0], trajectory[:, 1], 'b-', alpha=0.3, linewidth=1)
+
+    # Draw goal
+    ax.plot(goal[0], goal[1], 'k*', ms=20, label='Goal')
+
+    # Draw bicycle as arrow showing position and heading
+    arrow_length = 0.8
+    dx = arrow_length * jnp.cos(theta)
+    dy = arrow_length * jnp.sin(theta)
+    ax.add_patch(FancyArrow(x, y, dx, dy, width=0.15,
+                        head_width=0.5, head_length=0.35,
+                        fc='red', ec='darkred', linewidth=1))
+
+    # Set axis properties
+    ax.set_xlim(states_np[:, 0].min() - 2, states_np[:, 0].max() + 2)
+    ax.set_ylim(states_np[:, 1].min() - 2, states_np[:, 1].max() + 2)
+    ax.set_xlabel('x [m]')
+    ax.set_ylabel('y [m]')
+    ax.set_aspect('equal')
+    ax.grid(alpha=0.3)
+    ax.legend()
+
+print("Creating animation...")
+animate_trajectory(states_np, draw_bicycle, "figures/test_ilqr.gif",
+                   fps=10, trajectory=states_np, goal=(0, 0))
+print("Animation saved to: figures/test_ilqr.gif\n")
