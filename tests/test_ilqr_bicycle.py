@@ -180,7 +180,8 @@ def draw_bicycle(ax, state, trajectory=None, goal=(0, 0)):
 
     # Draw trajectory trail
     if trajectory is not None:
-        ax.plot(trajectory[:, 0], trajectory[:, 1], 'b-', alpha=0.3, linewidth=1)
+        ax.plot(trajectory[:, 0], trajectory[:, 1], 'b-', alpha=0.3,
+                linewidth=1)
 
     # Draw goal
     ax.plot(goal[0], goal[1], 'k*', ms=20, label='Goal')
@@ -189,9 +190,9 @@ def draw_bicycle(ax, state, trajectory=None, goal=(0, 0)):
     arrow_length = 0.8
     dx = arrow_length * jnp.cos(theta)
     dy = arrow_length * jnp.sin(theta)
-    ax.add_patch(FancyArrow(x, y, dx, dy, width=0.15,
-                        head_width=0.5, head_length=0.35,
-                        fc='red', ec='darkred', linewidth=1))
+    ax.add_patch(FancyArrow(x, y, dx, dy, width=0.42,
+                            head_width=0.2, head_length=0.2,
+                            fc='red', ec='darkred', linewidth=2))
 
     # Set axis properties
     ax.set_xlim(states_np[:, 0].min() - 2, states_np[:, 0].max() + 2)
@@ -201,6 +202,7 @@ def draw_bicycle(ax, state, trajectory=None, goal=(0, 0)):
     ax.set_aspect('equal')
     ax.grid(alpha=0.3)
     ax.legend()
+
 
 print("Creating animation...")
 animate_trajectory(states_np, draw_bicycle, "figures/test_ilqr.gif",

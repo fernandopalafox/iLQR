@@ -117,7 +117,8 @@ jax.block_until_ready((states_ilqr, controls_ilqr))
 
 # Timed run
 start_time = time.time()
-(states_ilqr, controls_ilqr), (success_ilqr, stats_ilqr) = ilqr.solve(x0, u_init)
+(states_ilqr, controls_ilqr), (success_ilqr, stats_ilqr) = ilqr.solve(x0,
+                                                                      u_init)
 ilqr.print_stats(stats_ilqr.block_until_ready())
 print(f"\niLQR solve time: {time.time() - start_time:.4f} s")
 
@@ -181,7 +182,8 @@ fig, axs = plt.subplots(3, 1, figsize=(8, 10), constrained_layout=True)
 fig.suptitle("iLQR vs. LQR Solution for Linear-Quadratic Problem", fontsize=16)
 
 # (a) XY trajectory
-axs[0].plot(states_ilqr_np[:, 0], states_ilqr_np[:, 1], "b-", lw=2, label="iLQR")
+axs[0].plot(states_ilqr_np[:, 0], states_ilqr_np[:, 1], "b-", lw=2, 
+            label="iLQR")
 axs[0].plot(states_lqr_np[:, 0], states_lqr_np[:, 1], "r--", lw=2, label="LQR")
 axs[0].plot(x0[0], x0[1], "go", ms=10, label="Start")
 axs[0].plot(0, 0, "k*", ms=15, label="Target")
