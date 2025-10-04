@@ -1,6 +1,6 @@
 # iLQR Solver
 
-JAX-based implementation of iterative Linear Quadratic Regulator (iLQR) with multiple solver variants.
+JAX-based implementation of the iterative Linear Quadratic Regulator (iLQR) with multiple examples.
 
 <div align="center">
 
