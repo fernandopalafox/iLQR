@@ -1,32 +1,18 @@
 # =============================================================================
 # iLQR Solver Dependencies
 # =============================================================================
-# Python version: 3.10+
+# Python: 3.10+
+# JAX: 0.6.2 with CUDA 12 GPU support
 #
-# This requirements file installs JAX with CUDA 12 GPU support by default.
-# The versions below match the tested environment.
+# CUDA Compatibility:
+# - CUDA 12.x: jax[cuda12_pip] (default)
+# - CUDA 11.x: change to jax[cuda11_pip]
+# - CPU only:  change to jax (no extras)
 #
-# CUDA Compatibility Notes:
-# - CUDA 12.x: Use jax[cuda12] (default below)
-# - CUDA 11.x: Use jax[cuda11_pip] instead
-# - CPU only: Use jax without CUDA extras
-#
-# If JAX installation fails, check your CUDA version:
-#   nvidia-smi  # Shows CUDA driver version
-#
-# Then install manually:
-#   pip install -U "jax[cuda12_pip]"  # For CUDA 12.x
-#   pip install -U "jax[cuda11_pip]"  # For CUDA 11.x
-#   pip install -U jax jaxlib          # For CPU only
+# Check CUDA version: nvidia-smi
 # =============================================================================
 
-# Core dependencies with GPU support (CUDA 12)
 jax[cuda12_pip]==0.6.2
 numpy>=2.0.0,<3.0.0
 matplotlib>=3.9.0
 scipy>=1.10.0
-
-# Development dependencies (optional)
-# Uncomment to install:
-# pytest>=7.0
-# pytest-cov>=4.0
