@@ -165,10 +165,10 @@ axs[2].grid(alpha=0.3)
 axs[2].legend()
 
 plt.tight_layout()
-plt.savefig("figures/test_ilqr.png", dpi=300)
+plt.savefig("figures/test_ilqr_bicycle.png", dpi=300)
 plt.close()
 
-print("Plot saved to: figurestest_ilqr.png")
+print("Plot saved to: figures/test_ilqr_bicycle.png")
 
 
 # ========================================================================== #
@@ -205,6 +205,6 @@ def draw_bicycle(ax, state, trajectory=None, goal=(0, 0)):
 
 
 print("Creating animation...")
-animate_trajectory(states_np, draw_bicycle, "figures/test_ilqr.gif",
-                   fps=10, trajectory=states_np, goal=(0, 0))
-print("Animation saved to: figures/test_ilqr.gif\n")
+animate_trajectory(states_np, draw_bicycle, "figures/test_ilqr_bicycle.gif",
+                   fps=20, trajectory=states_np, goal=(0, 0))
+print("Animation saved to: figures/test_ilqr_bicycle.gif\n")

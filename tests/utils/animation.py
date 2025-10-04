@@ -22,15 +22,17 @@ def animate_trajectory(states, draw_fn, filename, fps=10, **draw_kwargs):
             # Draw bicycle at (x, y) with heading theta
             ...
 
-        animate_trajectory(states, draw_bicycle, "bicycle.gif", goal=(0, 0))
+        animate_trajectory(states, draw_bicycle, "bicycle.gif", fps=20, goal=(0, 0))
     """
-    fig, ax = plt.subplots(figsize=(8, 8))
+    fig, ax = plt.subplots(figsize=(6, 6))
 
     def update(frame):
         ax.clear()
         draw_fn(ax, states[frame], **draw_kwargs)
-        ax.set_title(f"t = {frame}/{len(states)-1}")
 
     anim = FuncAnimation(fig, update, frames=len(states), interval=1000/fps)
+
+    # Use tight layout to minimize whitespace
+    plt.tight_layout()
     anim.save(filename, writer=PillowWriter(fps=fps))
     plt.close()

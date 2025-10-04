@@ -153,7 +153,7 @@ print("=" * 70)
 # ========================================================================== #
 t = jnp.arange(T + 1) * dt
 
-fig, axs = plt.subplots(2, 1, figsize=(8, 6), sharex=True)
+fig, axs = plt.subplots(2, 1, figsize=(10, 6), sharex=True)
 
 # (a) State vs time
 axs[0].plot(t, states_np[:, 0], label="x (pos)")
@@ -213,5 +213,5 @@ def draw_cartpole(ax, state, world_size=5.0):
 
 print("Creating animation...")
 animate_trajectory(states_np, draw_cartpole, "figures/test_ilqr_cartpole.gif",
-                   fps=int(1/dt), world_size=1.0)
+                   fps=20, world_size=1.0)
 print("Animation saved to: figures/test_ilqr_cartpole.gif\n")

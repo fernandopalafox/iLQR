@@ -2,6 +2,15 @@
 
 JAX-based implementation of iterative Linear Quadratic Regulator (iLQR) with multiple solver variants.
 
+<div align="center">
+
+| Car Parking | Cart-Pole | Rocket Landing |
+|:-----------:|:---------:|:--------------:|
+| ![Parking](figures/test_ilqr_parking.gif) | ![Cart-Pole](figures/test_ilqr_cartpole.gif) | ![Rocket](figures/test_ilqr_rocket.gif) |
+| ![Parking Plot](figures/test_ilqr_parking.png) | ![Cart-Pole Plot](figures/test_ilqr_cartpole.png) | ![Rocket Plot](figures/test_ilqr_rocket.png) |
+
+</div>
+
 ## Installation
 
 The repo includes a `venv` with all dependencies. Just run:
@@ -59,12 +68,15 @@ ilqr = iLQR(cost, dynamics, horizon, dims)
 ## Running Tests
 
 ```bash
-make test          # Run both tests
-make test-bicycle  # Nonlinear unicycle model
-make test-unit     # Linear-quadratic system
+make test-all      # Run all tests and generate animations
+make test-parking  # Car parking with animation
+make test-cartpole # Cart-pole balancing with animation
+make test-rocket   # Rocket landing with animation
+make test-bicycle  # Bicycle navigation with animation
+make test-unit     # Unit test for iLQR in a LQ system
 ```
 
-Tests generate plots in `figures/`.
+Tests generate plots and animations in `figures/`.
 
 ## Available Solvers
 
