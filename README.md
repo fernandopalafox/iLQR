@@ -1,6 +1,7 @@
 # iLQR Solver
 
 JAX-based implementation of the iterative Linear Quadratic Regulator (iLQR) with multiple examples.
+For a full derivation see the tutorial [here](derivation.pdf).
 
 <div align="center">
 
