@@ -2,8 +2,6 @@ from jax import numpy as jnp
 from jax import jit, grad, jacfwd
 from jax.lax import scan
 from functools import partial
-from jax.numpy import sqrt, newaxis
-from jax.numpy.fft import irfft, rfftfreq
 
 # disable jitting
 import jax

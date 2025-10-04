@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools-scm[toml]>=6.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ilqr"
+version = "0.1.0"
+description = "JAX-based iLQR (iterative Linear Quadratic Regulator) solver"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "jax>=0.4.0",
+    "jaxlib>=0.4.0",
+    "matplotlib>=3.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short"
