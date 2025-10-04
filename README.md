@@ -4,7 +4,7 @@ JAX-based implementation of iterative Linear Quadratic Regulator (iLQR) with mul
 
 <div align="center">
 
-| Car Parking | Cart-Pole | Rocket Landing |
+| Car Parking | Cart Pole | Rocket Landing |
 |:-----------:|:---------:|:--------------:|
 | ![Parking](figures/test_ilqr_parking.gif) | ![Cart-Pole](figures/test_ilqr_cartpole.gif) | ![Rocket](figures/test_ilqr_rocket.gif) |
 | ![Parking Plot](figures/test_ilqr_parking.png) | ![Cart-Pole Plot](figures/test_ilqr_cartpole.png) | ![Rocket Plot](figures/test_ilqr_rocket.png) |
@@ -70,7 +70,7 @@ ilqr = iLQR(cost, dynamics, horizon, dims)
 ```bash
 make test-all      # Run all tests and generate animations
 make test-parking  # Car parking with animation
-make test-cartpole # Cart-pole balancing with animation
+make test-cartpole # Cart pole balancing with animation
 make test-rocket   # Rocket landing with animation
 make test-bicycle  # Bicycle navigation with animation
 make test-unit     # Unit test for iLQR in a LQ system
